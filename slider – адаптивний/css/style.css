@@ -1,0 +1,21 @@
+*{
+	box-sizing: border-box;
+}
+
+.wraper{
+	max-width: 1300px;
+	margin: 0 auto;
+background-color:aquamarine;
+}
+.slider {
+	border: 2px solid #000;
+	max-width: 80%;
+	margin: 20px auto;
+	overflow: hidden;
+	}
+.slider_line {
+display: flex;
+background-color: blue;
+transition: all ease 1s;
+	
+}

@@ -1,0 +1,40 @@
+(function () {
+	const images = document.querySelectorAll('.slider_line img');
+	const sliderline = document.querySelector('.slider_line');
+	let count = 0;
+	let width;
+	console.log(images)
+
+	function init() {
+		console.log('resize');
+		width = document.querySelector('.slider').offsetWidth;
+		sliderline.style.width = width * images.length + 'px';
+		images.forEach(item => {
+			item.style.width = width + 'px';
+			item.style.height = 'auto';
+		});
+		rollSlider();
+	}
+
+
+	window.addEventListener('resize', init);
+	init();
+	document.querySelector('.prev_button').addEventListener('click', function () {
+		count--;
+		if (count < 0) {
+			count = images.length - 1;
+		}
+		rollSlider();
+	})
+
+	document.querySelector('.next_button').addEventListener('click', function () {
+		count++;
+		if (count >= images.length) {
+			count = 0;
+		}
+		rollSlider();
+	})
+	function rollSlider() {
+		sliderline.style.transform = 'translate(-' + count * width + 'px)';
+	}
+}());
